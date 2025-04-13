@@ -1,0 +1,163 @@
+.homeContainer{
+    width: 100%;
+    height: 100%;
+
+    ::-webkit-scrollbar{
+        display: none;
+    }
+}
+
+.slider{
+    width: 100%;
+    height: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: scroll;
+    
+
+}
+
+
+.sliderImageContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-shrink: 0;
+}
+
+.sliderImageContainer img{
+    width: 100%;
+    height: 100%;
+}
+
+.ourCategories{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.ourCategories h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.homeCardContainer{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    justify-content: center;
+    align-items: start;
+}
+
+.homeCard{
+    width: 25%;
+    border: 1px solid #c6c6c6;
+    padding: 0.5rem;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.homeCard img{
+    border-radius: 10px;
+    width: 100%;
+}
+
+.homeCard h2{
+    text-align: center;
+    font-weight: 400;
+    margin: 0.5rem 0rem;
+    font-size: 1.1rem;
+}
+
+.homeCard:hover{
+    box-shadow: #666666 0px 3px 8px;
+    color: #666666;
+}
+
+
+/* gift box collection  */
+
+.giftBoxCollection {
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+    position: relative;
+}
+
+.backgroundGray{
+    width: 50%;
+    position: absolute;
+    background-color: #666666;
+    left: 50%;
+}
+
+.first{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.section3{
+    width: 80%;
+    margin: auto;
+    height: 20rem;
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section3{
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    margin-top: 3rem;
+}
+
+#section3Details{
+    width: 30%;
+}
+
+.bounceCards{
+    margin-bottom: -3rem;
+}
+
+.icons{
+    font-size: 3rem;
+}
+
+@media(max-width:1200px){
+    .section3{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+    }
+    #section3Details{
+        width: 40rem;
+    }
+}
+
+@media(max-width:750px){
+    #section3Details{
+        width: 80%;
+        margin: auto;
+    }
+    .icons{
+        font-size: 2rem;
+    }
+}
+
+@media(max-width:500px){
+    #section3Details h1{
+        font-size: 2rem;
+    }
+}
