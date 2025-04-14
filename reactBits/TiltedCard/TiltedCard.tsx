@@ -1,6 +1,7 @@
 import type { SpringOptions } from "framer-motion";
 import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { on } from "events";
 
 interface TiltedCardProps {
   imageSrc: React.ComponentProps<"img">["src"];
@@ -16,6 +17,7 @@ interface TiltedCardProps {
   showTooltip?: boolean;
   overlayContent?: React.ReactNode;
   displayOverlayContent?: boolean;
+  onClick?: () => void;
 }
 
 const springValues: SpringOptions = {
@@ -38,6 +40,8 @@ export default function TiltedCard({
   showTooltip = true,
   overlayContent = null,
   displayOverlayContent = false,
+  onClick,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
 }: TiltedCardProps) {
   const ref = useRef<HTMLElement>(null);
   const x = useMotionValue(0);
@@ -115,6 +119,7 @@ export default function TiltedCard({
           rotateY,
           scale,
         }}
+        onClick={onClick}
       >
         <motion.img
           src={imageSrc}

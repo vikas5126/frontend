@@ -5,6 +5,7 @@ import Home from './pages/Home.tsx';
 import './App.css'
 import  Contact  from './pages/Contact.tsx';
 import  About  from './pages/About.tsx';
+import Category from './components/Category.tsx';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path='/bulkorder' element={<Home/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/about' element={<About/>}/>
+        <Route path='/category/:id' element={<Category/>}/>
       </Routes>
     </div>
   )

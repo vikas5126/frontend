@@ -16,6 +16,7 @@ import image4 from "../assets/images/peter-f-fZ7-IAReeSo-unsplash.jpg";
 import cardImage from "../assets/images/almond-icon.jpg";
 import cardImage1 from "../assets/images/dates-icon.jpg";
 import cardImage2 from "../assets/images/exclusive-icon.jpg";
+import { useNavigate } from "react-router-dom";
 // import cardImage3 from '../assets/images/kaju-icon.jpg'
 
 import Navbar from "../components/Navbar";
@@ -65,6 +66,14 @@ const Home = () => {
       name: "Exclusive",
       image: cardImage2,
     },
+    {
+      name: 'berries',
+      image: cardImage,
+    },
+    {
+      name: 'seeds',
+      image: cardImage1,
+    }
   ];
 
   const comments = [
@@ -122,6 +131,8 @@ const Home = () => {
     });
   }, [api]);
 
+  const navigate = useNavigate();
+
   return (
     <>
       <Navbar />
@@ -167,6 +178,7 @@ const Home = () => {
                   showMobileWarning={false}
                   showTooltip={true}
                   displayOverlayContent={true}
+                  onClick={() => navigate(`/category/${item.name.toLowerCase()}`)}
                   overlayContent={
                     <p className="tilted-card-demo-text text-2xl ml-4 mt-4">
                       {item.name}
