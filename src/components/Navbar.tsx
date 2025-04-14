@@ -9,9 +9,9 @@ const Navbar = () => {
         <div className={styles.topBanner}>
             <div className={styles.icons}>
               <i className="ri-smartphone-line"></i>
-              <p> +91-7483600212</p>
+              <p> +91-9835477119</p>
               <i className="ri-mail-line"></i>
-              <p>info@dryfruithouse.com</p>
+              <p>rahul251202@gmail.com</p>
             </div>
             <div className={styles.topBannerTag}>This is our first website and we are selling dryfruit</div>
             <div className={styles.socialmedia}>

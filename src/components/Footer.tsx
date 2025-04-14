@@ -25,13 +25,12 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="w-[100%] bg-gray-200 mt-12 p-6 box-border">
+      <div className="w-[100%] text-white bg-black mt-12 p-6 box-border">
         <div className="flex w-full box-border gap-8">
           <div className="w-[80%] items-center  m-auto sm:w-[25%] sm:items-start flex flex-col gap-4">
             <img src={logo} alt="logo" className="w-48" />
             <p>
-              Lorem ipsum dolor sit amet consectetur recusandae asperiores
-              corporis. A accusantium delectus provident{" "}
+            Dry Fruit House brings you a collection of carefully selected foods from India and across the world.
               <a href="/about">Explore More</a>
             </p>
             <div className="flex gap-4 text-3xl mt-2">
@@ -58,13 +57,13 @@ const Footer = () => {
           <div className="w-[25%] hidden sm:flex flex-col gap-4 mt-4">
             <p className="text-2xl font-semibold">contact Details</p>
             <p>
-              <i className="ri-home-9-fill"></i> Trinagar, delhi-110034
+              <i className="ri-home-9-fill"></i> Trinagar, delhi-110035
             </p>
             <p>
-              <i className="ri-mail-fill"></i> rahul123@gmail.com
+              <i className="ri-mail-fill"></i> rahul251202@gmail.com
             </p>
             <p>
-              <i className="ri-phone-fill"></i> +91-999999999
+              <i className="ri-phone-fill"></i> +91-9835477119
             </p>
           </div>
         </div>
@@ -74,7 +73,7 @@ const Footer = () => {
             <p>© 2023 Prabhashree. All rights reserved.</p>
           </div>
           <div>
-            <p>Designed by Rahul Kumar</p>
+            <p>Designed by Rahul Jha</p>
           </div>
         </div>
       </div>
