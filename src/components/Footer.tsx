@@ -1,4 +1,3 @@
-import React from "react";
 import { RiCustomerService2Line, RiSecurePaymentLine } from "react-icons/ri";
 import "../styles/_footer.scss";
 

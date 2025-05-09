@@ -1,12 +1,10 @@
-import { MdAccountCircle } from "react-icons/md";
-import { FaBars, FaTimes, FaHome, FaSearch, FaShoppingBag, FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
-import { Link, Navigate } from "react-router-dom";
-import { useState } from "react";
-import { User } from "../types/types";
-import { sign } from "crypto";
-import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
+import { useState } from "react";
 import toast from "react-hot-toast";
+import { FaBars, FaHome, FaSearch, FaShoppingBag, FaSignOutAlt, FaTimes, FaUser } from "react-icons/fa";
+import { Link, Navigate } from "react-router-dom";
+import { auth } from "../firebase";
+import { User } from "../types/types";
 
 interface PropsType {
   user: User | null;

@@ -1,14 +1,14 @@
-import {ReactElement, useEffect, useState} from "react";
+import { ReactElement, useEffect, useState } from "react";
 import TableHOC from "../components/admin/TableHOC";
 
-import { Column } from "react-table";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { UserReducerInitialState } from "../types/reducer-types";
-import { CustomError } from "../types/api-types";
-import { useMyOrdersQuery } from "../redux/api/orderAPI";
 import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { Column } from "react-table";
 import { Skeleton } from "../components/loader";
+import { useMyOrdersQuery } from "../redux/api/orderAPI";
+import { CustomError } from "../types/api-types";
+import { UserReducerInitialState } from "../types/reducer-types";
 type DataType = {
     _id: string;
     amount: number;

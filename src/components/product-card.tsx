@@ -46,7 +46,6 @@ import { useState } from "react";
 
 
 
-import { FaStar } from "react-icons/fa";
 import { server } from "../redux/store";
 import { CartItem } from "../types/types";
 

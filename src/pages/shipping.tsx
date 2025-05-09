@@ -1,13 +1,12 @@
-import { ChangeEvent, FormEvent, useEffect, useState }   from "react";
-import { BiArrowBack } from "react-icons/bi";
-import { useNavigate } from "react-router-dom";
-import { CartReducerInitialState, UserReducerInitialState } from "../types/reducer-types";
-import { useDispatch, useSelector } from "react-redux";
-import toast from "react-hot-toast";
-import { saveShippingInfo } from "../redux/reducer/cartReducer";
 import axios from "axios";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { BiArrowBack } from "react-icons/bi";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { saveShippingInfo } from "../redux/reducer/cartReducer";
 import { server } from "../redux/store";
-import Coupon from "./admin/apps/coupon";
+import { CartReducerInitialState, UserReducerInitialState } from "../types/reducer-types";
 const Shipping = () => {
 
     const {user} = useSelector((state : {userReducer: UserReducerInitialState})=> state.userReducer);

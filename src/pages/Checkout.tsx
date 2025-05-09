@@ -1,20 +1,19 @@
 import {
-    Elements,
-    PaymentElement,
-    useElements,
-    useStripe,
-  } from "@stripe/react-stripe-js";
-  import { loadStripe } from "@stripe/stripe-js";
-  import { FormEvent, useState } from "react";
-  import toast from "react-hot-toast";
-  import { useDispatch, useSelector } from "react-redux";
-  import { Navigate, useLocation, useNavigate } from "react-router-dom";
-  import { useNewOrderMutation } from "../redux/api/orderAPI";
-  import { resetCart } from "../redux/reducer/cartReducer";
-  import { NewOrderRequest } from "../types/api-types";
-  import { responseToast } from "../utils/features";
+  Elements,
+  PaymentElement,
+  useElements,
+  useStripe,
+} from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import { FormEvent, useState } from "react";
+import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useNewOrderMutation } from "../redux/api/orderAPI";
+import { resetCart } from "../redux/reducer/cartReducer";
+import { NewOrderRequest } from "../types/api-types";
 import { CartReducerInitialState, UserReducerInitialState } from "../types/reducer-types";
-import { stringify } from "querystring";
+import { responseToast } from "../utils/features";
   
   const stripeKey =
     "pk_test_51PTW6GAp77KFTccsiTOA8UVMmvFcUrAV7RolpbWSahjRy04xiwvTHixhVSIE97Y7gKWn9mPzpEykIkJSBdYiMD7g00WaSLP3FW";

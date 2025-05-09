@@ -2,11 +2,11 @@ import { useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Almond from "../assets/images/Almond.png";
-import Pista from "../assets/images/pista.png";
-import Dates from "../assets/images/dates.png";
-import Raisin from "../assets/images/raisin.png";
-import Fig from "../assets/images/fig.png";
 import Cashew from "../assets/images/cashew.png";
+import Dates from "../assets/images/dates.png";
+import Fig from "../assets/images/fig.png";
+import Pista from "../assets/images/pista.png";
+import Raisin from "../assets/images/raisin.png";
 
 
 const dryFruits = [

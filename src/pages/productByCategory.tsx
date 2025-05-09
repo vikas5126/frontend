@@ -1,10 +1,9 @@
-import React from 'react'
-import { useProductsByCategoryQuery } from '../redux/api/productAPI'
+import toast from 'react-hot-toast'
+import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { Skeleton } from '../components/loader'
 import ProductCard from '../components/product-card'
-import toast from 'react-hot-toast'
-import { useDispatch } from 'react-redux'
+import { useProductsByCategoryQuery } from '../redux/api/productAPI'
 import { addToCart } from '../redux/reducer/cartReducer'
 import { CartItem } from '../types/types'
 
