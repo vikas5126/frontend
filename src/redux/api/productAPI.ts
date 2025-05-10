@@ -15,6 +15,7 @@ import {
   UpdateProductRequest,
 } from "../../types/api-types";
 
+console.log(`${import.meta.env.VITE_SERVER}/api/v1/product`);
 export const productAPI = createApi({
   reducerPath: "productApi",
   baseQuery: fetchBaseQuery({
