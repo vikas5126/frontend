@@ -5,7 +5,6 @@ import { Column } from "react-table";
 import AdminSidebar from "../../components/admin/AdminSidebar";
 import TableHOC from "../../components/admin/TableHOC";
 import { useAllProductsQuery } from "../../redux/api/productAPI";
-import { Product } from "../../types/types";
 import toast from "react-hot-toast";
 import { CustomError } from "../../types/api-types";
 import { useSelector } from "react-redux";
@@ -46,7 +45,7 @@ const columns: Column<DataType>[] = [
 
 const Products = () => {
   const {user} = useSelector((state : {userReducer: UserReducerInitialState})=> state.userReducer);
-  const {data, isLoading, isError, error} = useAllProductsQuery(user?._id);
+  const {data, isLoading, isError, error} = useAllProductsQuery(user?._id || "");
   const [rows, setRows] = useState<DataType[]>(Array);
 
   if(isError){
@@ -60,7 +59,7 @@ const Products = () => {
         data.products.map((i) => ({
           photo: <img src={`${server}/${i.photo}`} />,
           name: i.name,
-          price: i.price,
+          price: Number(i.price),
           stock: i.stock,
           action: <Link to={`/admin/product/${i._id}`}>Manage</Link>,
         }))

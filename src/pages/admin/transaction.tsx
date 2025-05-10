@@ -8,7 +8,6 @@ import { UserReducerInitialState } from "../../types/reducer-types";
 import { useAllOrdersQuery } from "../../redux/api/orderAPI";
 import { CustomError } from "../../types/api-types";
 import toast from "react-hot-toast";
-import { server } from "../../redux/store";
 import { Skeleton } from "../../components/loader";
 
 interface DataType {

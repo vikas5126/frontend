@@ -11,7 +11,7 @@ const Shipping = () => {
 
     const {user} = useSelector((state : {userReducer: UserReducerInitialState})=> state.userReducer);
 
-    const {cartItems, coupon , total} = useSelector(
+    const {cartItems , total} = useSelector(
         (state: {cartReducer: CartReducerInitialState}) => state.cartReducer
       )
 

@@ -47,36 +47,11 @@ const columns: Column<DataType>[] = [
 
 
 
-const arr: Array<DataType> = [
-  {
-    name: "Emily Palmer",
-    email: "emily.palmer@example.com",
-    gender: "female",
-    role: "user",
-    action: (
-      <button>
-        <FaTrash />
-      </button>
-    ),
-  },
-
-  {
-    name: "May Scoot",
-    email: "aunt.may@example.com",
-    gender: "female",
-    role: "user",
-    action: (
-      <button>
-        <FaTrash />
-      </button>
-    ),
-  },
-];
 
 const Customers = () => {
   const {user} = useSelector((state : {userReducer: UserReducerInitialState})=> state.userReducer);
 
-  const { isLoading, data, isError, error } = useAllUsersQuery(user?._id!);
+  const { data, isError, error } = useAllUsersQuery(user?._id!);
 
   const [rows, setRows] = useState<DataType[]>([]);
 
@@ -95,17 +70,17 @@ const Customers = () => {
   useEffect(() => {
     if (data)
       setRows(
-        data.users.map((i) => ({
-          name: i.name,
-          email: i.email,
-          gender: i.gender,
-          role: i.role,
-          action: (
-            <button onClick={() => deleteHandler(i._id)}>
-              <FaTrash />
-            </button>
-          ),
-        }))
+      data.users.map((i: { _id: string; name: string; email: string; gender: string; role: string }) => ({
+        name: i.name,
+        email: i.email,
+        gender: i.gender,
+        role: i.role,
+        action: (
+        <button onClick={() => deleteHandler(i._id)}>
+          <FaTrash />
+        </button>
+        ),
+      }))
       );
   }, [data]);
 

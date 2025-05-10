@@ -4,7 +4,7 @@ import AdminSidebar from "../../../components/admin/AdminSidebar";
 import { UserReducerInitialState } from "../../../types/reducer-types";
 import { useSelector } from "react-redux";
 import { useDeleteProductMutation, useProductDetailsQuery, useUpdateProductMutation } from "../../../redux/api/productAPI";
-import { useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { server } from "../../../redux/store";
 import { Skeleton } from "../../../components/loader";
 import { responseToast } from "../../../utils/features";
@@ -14,7 +14,7 @@ import { responseToast } from "../../../utils/features";
 
 const Productmanagement = () => {
 
-    const {user, loading} = useSelector(
+    const {user} = useSelector(
       (state: {userReducer: UserReducerInitialState}) => state.userReducer
     );
 
@@ -63,7 +63,7 @@ const Productmanagement = () => {
     }
   };
 
-  const submitHandler = async (e: FormEvent<HTMLFormElement>): void => {
+  const submitHandler = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     const formData = new FormData();
     if(nameUpdate) formData.set("name", nameUpdate);
@@ -102,7 +102,7 @@ responseToast(res, navigate, "/admin/product");
     }
   }, [data])
 
-   if(isError) return <Navigate to={"/404"}/>
+   if(isError) return <Navigate to={'/404'}/>
 
   return (
     <div className="admin-container">

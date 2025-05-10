@@ -1,15 +1,14 @@
 import { FaTrash } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import AdminSidebar from "../../../components/admin/AdminSidebar";
-import { OrderItem } from "../../../models/types";
+// import { OrderItem } from "../../../models/types";
 import { useDeleteOrderMutation, useOrderDetailsQuery, useUpdateOrderMutation } from "../../../redux/api/orderAPI";
 import { server } from "../../../redux/store";
 import { UserReducerInitialState } from "../../../types/reducer-types";
 import { responseToast } from "../../../utils/features";
+import { OrderItem } from "../../../types/types";
 
-
-const orderItems: any[] = [];
 
 const defaultData = {
   shippingInfo: {
@@ -40,7 +39,7 @@ const TransactionManagement = () => {
   const params = useParams();
   const navigate = useNavigate();
 
-  const {isLoading, data, error, isError} = useOrderDetailsQuery(params?.id);
+  const { data } = useOrderDetailsQuery(params?.id || "");
 
   const {
     shippingInfo: { address, city, state, country, pinCode },

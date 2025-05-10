@@ -1,7 +1,7 @@
 import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { server } from "../redux/store";
-import { CartItem } from "../types/types";
+import type { CartItem } from "../types/types";
 type CartItemProps = {
 cartItem: CartItem;
 increment: (cartItem: CartItem) => void;

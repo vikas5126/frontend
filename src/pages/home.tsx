@@ -127,7 +127,7 @@ const Home = () => {
                 stock={product.stock}
                 handler={addToCardHandler}
                 photo={product.photo}
-                description={product.description}
+                // description={product.description}
                 tag={product.tag || "New"}
                 sale={product.sale || false}
                 numOfReviews={product.numOfReviews || 0}

@@ -45,7 +45,7 @@ const TransactionManagement = lazy(
 );
 
 const App = () => {
-  const {user, loading} = useSelector((state:{userReducer: UserReducerInitialState}) => state.userReducer);
+  const {user} = useSelector((state:{userReducer: UserReducerInitialState}) => state.userReducer);
 
   // console.log(user?.role);
 
@@ -56,7 +56,9 @@ const App = () => {
       if (user) {
         const data = await getUser(user.uid);
         // console.log("User is signed in:", user);
-        dispatch(userExist(data.user))
+        if (data && data.user) {
+          dispatch(userExist(data.user));
+        }
         // User is signed in, you can access user information here
       } else {
         dispatch(userNotExist());

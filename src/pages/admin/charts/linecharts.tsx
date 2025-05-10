@@ -4,7 +4,6 @@ import AdminSidebar from "../../../components/admin/AdminSidebar";
 import { LineChart } from "../../../components/admin/Charts";
 import { Skeleton } from "../../../components/loader";
 import { useLineQuery } from "../../../redux/api/dashboardAPI";
-import { RootState } from "../../../redux/store";
 import { CustomError } from "../../../types/api-types";
 import { getLastMonths } from "../../../utils/features";
 import { UserReducerInitialState } from "../../../types/reducer-types";

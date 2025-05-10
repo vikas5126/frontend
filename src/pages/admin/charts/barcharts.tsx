@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import AdminSidebar from "../../../components/admin/AdminSidebar";
 import { BarChart } from "../../../components/admin/Charts";
-import { RootState } from "../../../redux/store";
 import { useBarQuery } from "../../../redux/api/dashboardAPI";
 import { CustomError } from "../../../types/api-types";
 import toast from "react-hot-toast";

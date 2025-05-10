@@ -5,12 +5,12 @@ photo: string;
 name: string;
 price: string;
 stock: number;
-description: string;
+// description: string;
 tag: string;
 sale: boolean;
 numOfReviews: number,
 star:number,
-handler: () => (cartItem: CartItem) => string | undefined
+handler: (cartItem: CartItem) => string | undefined
 };
 
 
@@ -57,21 +57,21 @@ const ProductCard = ({
   stock,
   star,
   numOfReviews,
-  description,
+  // description,
   sale,
   tag,
   handler,
 }: ProductCardProps) => {
   // {"250g":{"price":225,"mrp":315},"500g":{"price":400,"mrp":525},"1kg":{"price":750,"mrp":899}}
 
-  const priceOptions = JSON.parse(price);
+  const priceOptions: Record<string, { price: number; mrp: number }> = JSON.parse(price);
   
 
   const [selectedWeight, setSelectedWeight] = useState<keyof typeof priceOptions>("250g");
   let finalprice:number = priceOptions[selectedWeight].price;
 
-  const handleChange = (e) => {
-    setSelectedWeight(e.target.value);
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    setSelectedWeight(e.target.value as keyof typeof priceOptions);
     finalprice = priceOptions[selectedWeight].price;
   };
 
@@ -99,10 +99,10 @@ const ProductCard = ({
       </div>
 
       <div className="weight-select">
-        <select value={selectedWeight} onChange={handleChange}>
+        <select value={selectedWeight as string} onChange={handleChange}>
           {Object.entries(priceOptions).map(([weight, data]) => (
             <option key={weight} value={weight}>
-              {weight} – ₹ {data.price}
+              {weight} – ₹ {(data as { price: number; mrp: number }).price}
             </option>
           ))}
         </select>

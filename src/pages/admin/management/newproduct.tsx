@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { responseToast } from "../../../utils/features";
 
 const NewProduct = () => {
-  const {user, loading} = useSelector(
+  const {user} = useSelector(
     (state: {userReducer: UserReducerInitialState}) => state.userReducer
   );
 
@@ -114,7 +114,7 @@ const NewProduct = () => {
             <div>
               <label>
               <input type="hidden" name="agree" value="false" />
-              <input type="checkbox" name="agree" value="true" onChange={(e) => setSale(e.target.value)}/>
+              <input type="checkbox" name="agree" onChange={(e) => setSale(e.target.checked)}/>
               Sale
               </label>
             </div>
