@@ -1,53 +1,19 @@
-// import { FaPlus } from "react-icons/fa";
-type ProductCardProps = {
-productId: string;
-photo: string;
-name: string;
-price: string;
-stock: number;
-// description: string;
-tag: string;
-sale: boolean;
-numOfReviews: number,
-star:number,
-handler: (cartItem: CartItem) => string | undefined
-};
-
-
-
-import { useState } from "react";
-// const server = "jdlkafdh";
-
-// const ProductCard = ({
-//   productId,
-//   price,
-//   name,
-//   photo,
-//   stock,
-//   handler,
-// }: ProductCardProps) => {
-
-//   return(
-//   <div className="product-card">
-
-//     <img src={photo} alt={name} />
-//     <p>{name}</p>
-//     <span>${price}</span>
-
-//   <div>
-//   <button onClick={() => handler()}>
-//     <FaPlus />
-//   </button>
-//   </div>
-//   </div>
-// );
-// };
-// export default ProductCard;
-
-
-
-import { server } from "../redux/store";
+import { useState, useMemo } from "react";
 import { CartItem } from "../types/types";
+import { server } from "../redux/store";
+
+type ProductCardProps = {
+  productId: string;
+  photo: string;
+  name: string;
+  price: string; // JSON string
+  stock: number;
+  tag: string;
+  sale: boolean;
+  numOfReviews: number;
+  star: number;
+  handler: (cartItem: CartItem) => string | undefined;
+};
 
 const ProductCard = ({
   productId,
@@ -57,39 +23,42 @@ const ProductCard = ({
   stock,
   star,
   numOfReviews,
-  // description,
   sale,
   tag,
   handler,
 }: ProductCardProps) => {
-  // {"250g":{"price":225,"mrp":315},"500g":{"price":400,"mrp":525},"1kg":{"price":750,"mrp":899}}
+  // Parse and type the price options
+  const priceOptions = useMemo(() => {
+    try {
+      return JSON.parse(price) as Record<string, { price: number; mrp: number }>;
+    } catch (e) {
+      console.error("Invalid price JSON:", price);
+      return {};
+    }
+  }, [price]);
 
-  const priceOptions: Record<string, { price: number; mrp: number }> = JSON.parse(price);
-  
+  // Use the first available weight key dynamically (instead of hardcoding "250g")
+  const defaultWeight = Object.keys(priceOptions)[0] || "";
 
-  const [selectedWeight, setSelectedWeight] = useState<keyof typeof priceOptions>("250g");
-  let finalprice:number = priceOptions[selectedWeight].price;
+  const [selectedWeight, setSelectedWeight] = useState<string>(defaultWeight);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    setSelectedWeight(e.target.value as keyof typeof priceOptions);
-    finalprice = priceOptions[selectedWeight].price;
+    setSelectedWeight(e.target.value);
   };
+
+  const finalprice: number = priceOptions[selectedWeight]?.price || 0;
+  const finalmrp: number = priceOptions[selectedWeight]?.mrp || 0;
 
   return (
     <div className="product-card">
-      <div className="label best-seller">{tag ? tag : ""}</div>
+      <div className="label best-seller">{tag}</div>
       <div className="label on-sale">{sale ? "On sale" : ""}</div>
 
       <div className="image-wrapper">
-        <img
-          src={`${server}/${photo}`}
-          alt={name}
-        />
+        <img src={`${server}/${photo}`} alt={name} />
       </div>
 
-      <h3 className="product-title">
-        {name}
-      </h3>
+      <h3 className="product-title">{name}</h3>
 
       <div className="rating">
         {Array.from({ length: star }).map((_, i) => (
@@ -99,21 +68,35 @@ const ProductCard = ({
       </div>
 
       <div className="weight-select">
-        <select value={selectedWeight as string} onChange={handleChange}>
+        <select value={selectedWeight} onChange={handleChange}>
           {Object.entries(priceOptions).map(([weight, data]) => (
             <option key={weight} value={weight}>
-              {weight} – ₹ {(data as { price: number; mrp: number }).price}
+              {weight} – ₹ {data.price}
             </option>
           ))}
         </select>
       </div>
 
       <div className="price">
-        <span className="final">₹ {priceOptions[selectedWeight].price}</span>
-        <span className="mrp">MRP ₹ {priceOptions[selectedWeight].mrp}</span>
+        <span className="final">₹ {finalprice}</span>
+        <span className="mrp">MRP ₹ {finalmrp}</span>
       </div>
 
-      <button className="add-to-cart" onClick={()=>handler({productId, price: finalprice, name, photo, stock, quantity: 1})}>Add to Cart</button>
+      <button
+        className="add-to-cart"
+        onClick={() =>
+          handler({
+            productId,
+            price: finalprice,
+            name,
+            photo,
+            stock,
+            quantity: 1,
+          })
+        }
+      >
+        Add to Cart
+      </button>
     </div>
   );
 };
