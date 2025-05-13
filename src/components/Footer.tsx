@@ -31,10 +31,10 @@ const Footer = () => {
           <RiSecurePaymentLine />
           <p>Swift Shipping</p>
         </div>
-        <div className="utility-item">
+        {/* <div className="utility-item">
           <RiSecurePaymentLine />
           <p>Money Return</p>
-        </div>
+        </div> */}
       </div>
       <footer className="site-footer">
       <div className="footer-container">
