@@ -1942,4 +1942,192 @@ a {
   100% {
     opacity: 0.6;
   }
+}
+.about-page {
+  background-color: #fffaf4;
+  color: #3e2f1c;
+  padding: 2rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+.about-page .container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.about-page .container h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.about-page .container p {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-page {
+  background-color: #fffaf4;
+  color: #3e2f1c;
+  padding: 2rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+.contact-page .container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.contact-page .container h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.contact-page .container form {
+  display: flex;
+  flex-direction: column;
+}
+.contact-page .container form label {
+  margin-top: 1rem;
+  font-weight: 500;
+}
+.contact-page .container form input,
+.contact-page .container form textarea {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.contact-page .container form button {
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  background-color: #3e2f1c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.privacy-page {
+  background-color: #fffaf4;
+  color: #3e2f1c;
+  padding: 2rem;
+  /* Removed max-height and overflow-y */
+}
+.privacy-page .container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.privacy-page .container h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.privacy-page .container section {
+  margin-bottom: 2rem;
+}
+.privacy-page .container section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.privacy-page .container section p {
+  line-height: 1.8;
+}
+.privacy-page .container section ul {
+  margin-left: 1.5rem;
+}
+.privacy-page .container section ul li {
+  list-style: disc;
+  margin-bottom: 0.5rem;
+}
+
+.terms-page {
+  background-color: #fffaf4;
+  color: #3e2f1c;
+  padding: 2rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+.terms-page .container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.terms-page .container h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.terms-page .container section {
+  margin-bottom: 2rem;
+}
+.terms-page .container section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.terms-page .container section p {
+  line-height: 1.75;
+}
+
+.return-policy-page {
+  background-color: #fffaf4;
+  color: #3e2f1c;
+  padding: 2rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+.return-policy-page .container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.return-policy-page .container header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.return-policy-page .container header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.return-policy-page .container header p {
+  font-size: 0.875rem;
+  color: gray;
+}
+.return-policy-page .container section {
+  margin-bottom: 2rem;
+}
+.return-policy-page .container section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #7b3f00;
+}
+.return-policy-page .container section p,
+.return-policy-page .container section ul {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.return-policy-page .container section ul {
+  margin-left: 1.5rem;
+}
+.return-policy-page .container section ul li {
+  list-style: disc;
+  margin-bottom: 0.5rem;
+}
+.return-policy-page .container section a {
+  color: #0055aa;
+  text-decoration: underline;
+}
+.return-policy-page .container section a:hover {
+  color: #003c77;
+}
+.return-policy-page .container footer {
+  text-align: center;
+  font-size: 0.875rem;
+  color: gray;
+  padding-top: 2rem;
 }/*# sourceMappingURL=app.css.map */

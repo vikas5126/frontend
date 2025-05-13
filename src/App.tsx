@@ -23,6 +23,11 @@ const OrderDetails = lazy(() => import("./pages/order-details"));
 const ProductByCategory = lazy(()=> import("./pages/productByCategory"));
 
 const Checkout = lazy(()=>import('./pages/Checkout'))
+const About = lazy(()=>import('./pages/About'))
+const PrivacyPolicy = lazy(()=>import('./pages/PrivacyPolicy'))
+const ReturnPolicy = lazy(()=>import('./pages/ReturnPolicy'))
+const TermsAndConditions = lazy(()=>import('./pages/TermsAndConditions'));
+const Contact = lazy(()=>import('./pages/Contact'));
 
 
 //admin routes importing 
@@ -80,6 +85,11 @@ const App = () => {
 <Route path="/search" element={<Search />}/>
 <Route path="/cart" element={<Cart />}/>
 <Route path='/collection/:category' element={<ProductByCategory/>}/>
+<Route path='/about' element={<About/>}/>
+<Route path='/contact' element={<Contact/>}/>
+<Route path='/term' element={<TermsAndConditions/>}/>
+<Route path='/privacy' element={<PrivacyPolicy/>}/>
+<Route path='/return' element={<ReturnPolicy/>}/>
 
 {/* Not logged In Route */}
 /

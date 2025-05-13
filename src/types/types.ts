@@ -155,4 +155,8 @@ export type User = {
     amount: number;
     _id: string;
   };
-  
+
+  export type PaymentType = {
+    id: string,
+    amount: number
+  }

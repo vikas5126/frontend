@@ -1,5 +1,6 @@
 import { RiCustomerService2Line, RiSecurePaymentLine } from "react-icons/ri";
 import "../styles/_footer.scss";
+import { Link } from "react-router-dom";
 
 
 const Footer = () => {
@@ -46,19 +47,19 @@ const Footer = () => {
           <div>
             <h4>Quick Links</h4>
             <ul>
-              <li>About Us</li>
-              <li>Contact Us</li>
-              <li>Bulk Ordering</li>
-              <li>Shopping</li>
+              <Link to={"/about"}><li>About Us</li></Link>
+              <Link to={"/contact"}><li>Contact Us</li></Link>
+              {/* <Link to={"/contact"}><li>Bulk Ordering</li></Link> */}
+              <Link to={"/search"}><li>Shopping</li></Link>
             </ul>
           </div>
           <div>
             <h4>Account</h4>
             <ul>
-              <li>My Account</li>
-              <li>Privacy Policy</li>
-              <li>Return Policy</li>
-              <li>Terms & Conditions</li>
+              {/* <li>My Account</li> */}
+              <Link to={"/privacy"}><li>Privacy Policy</li></Link>
+              <Link to={"/return"}><li>Return Policy</li></Link>
+              <Link to={"/term"}><li>Terms & Conditions</li></Link>
             </ul>
           </div>
         </nav>
