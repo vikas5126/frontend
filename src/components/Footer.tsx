@@ -1,7 +1,6 @@
 import { RiCustomerService2Line, RiSecurePaymentLine } from "react-icons/ri";
 import "../styles/_footer.scss";
-import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import { useState } from "react";
 
 
 const Footer = () => {
