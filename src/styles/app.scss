@@ -140,7 +140,18 @@
         color: #a0522d;
       }
     }
+ 
+}
+    @media (max-width: 400px) {
+  .logo img {
+    display: none;
+    
   }
+  .logo {
+    margin-right: 1rem;;
+}
+    }
+  
 
   .nav-links {
     display: flex;
@@ -172,6 +183,8 @@
       opacity: 0;
       pointer-events: none;
       transition: all 0.3s ease;
+   
+
       
       &.active {
         transform: translateY(0);
@@ -189,6 +202,7 @@
 
     @media (max-width: 768px) {
       display: block;
+     
     }
   }
 
@@ -232,8 +246,9 @@
       font-size: 1.1rem;
     }
   }
-}
+ 
 
+}
 
 
 
@@ -463,31 +478,94 @@
 
   // footer pages 
 
-  .about-page {
+
+  // background-color: #fffaf4;
+  // color: #3e2f1c;
+  // padding: 2rem;
+  // max-height: 100vh;
+  // overflow-y: auto;
+
+  // .container {
+  //   max-width: 720px;
+  //   margin: 0 auto;
+
+  //   h1 {
+  //     font-size: 2.5rem;
+  //     font-weight: bold;
+  //     text-align: center;
+  //     margin-bottom: 1rem;
+  //   }
+
+  //   p {
+  //     line-height: 1.8;
+  //     font-size: 1.1rem;
+  //     margin-bottom: 1rem;
+  //   }
+  // }
+.about {
+  padding: 3rem 1rem;
   background-color: #fffaf4;
   color: #3e2f1c;
-  padding: 2rem;
-  max-height: 100vh;
-  overflow-y: auto;
 
   .container {
-    max-width: 720px;
+    max-width: 960px;
     margin: 0 auto;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .about-header {
+    text-align: center;
 
     h1 {
       font-size: 2.5rem;
       font-weight: bold;
-      text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .tagline {
+      font-size: 1.125rem;
+      color: #6b7280; // Tailwind's gray-500
+    }
+  }
+
+  .about-section {
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
     }
 
     p {
-      line-height: 1.8;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+
+      li {
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+      }
     }
   }
+
+  .about-footer {
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
 }
+
+
+
 
 
 .contact-page {

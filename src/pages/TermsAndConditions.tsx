@@ -42,33 +42,33 @@ const TermsAndConditions = () => {
           </p>
         </section>
 
-        <section>
+        {/* <section>
           <h2 className="text-2xl font-semibold mb-2">5. Returns & Refunds</h2>
           <p className="leading-relaxed">
             Due to the perishable nature of our products, we only accept returns for items that are damaged or incorrect. Please notify us within 48 hours of delivery to be eligible for a replacement or refund.
           </p>
-        </section>
+        </section> */}
 
         <section>
-          <h2 className="text-2xl font-semibold mb-2">6. Intellectual Property</h2>
+          <h2 className="text-2xl font-semibold mb-2">5. Intellectual Property</h2>
           <p className="leading-relaxed">
             All content on this website including logos, designs, text, and images are the property of PrabhashreeBhog. Unauthorized use or reproduction is strictly prohibited.
           </p>
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-2">7. Governing Law</h2>
+          <h2 className="text-2xl font-semibold mb-2">6. Governing Law</h2>
           <p className="leading-relaxed">
             These Terms shall be governed by and interpreted in accordance with the laws of India. Any disputes shall be subject to the jurisdiction of courts located in Nashik, Maharashtra.
           </p>
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-2">8. Contact</h2>
+          <h2 className="text-2xl font-semibold mb-2">7. Contact</h2>
           <p className="leading-relaxed">
             For questions or concerns regarding these Terms, please contact us at:
             <br />
-            📧 <a href="mailto:support@prabhashreebhog.in" className="underline text-blue-600">support@prabhashreebhog.in</a>
+            📧 <a href="mailto:support@prabhashreebhog.in" className="underline text-blue-600">rahul251202@gmail.com</a>
           </p>
         </section>
 

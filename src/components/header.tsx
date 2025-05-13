@@ -6,6 +6,10 @@ import { Link, Navigate } from "react-router-dom";
 import { auth } from "../firebase";
 import { User } from "../types/types";
 
+
+import Whatsapp from "../assets/images/whatsapp.png";
+import prabhashreelogo from "../assets/images/logoprabha.jpg";
+
 interface PropsType {
   user: User | null;
 }
@@ -39,9 +43,13 @@ const Header = ({user}: PropsType) => {
 
   return (
     <header className="header">
-      <div className="logo">
-        <Link to="/" onClick={closeMenu}>Prabhashree<span>Bhog</span></Link>
-      </div>
+      
+            <div className="logo">
+              <Link className ="flex gap-2" to="/" onClick={closeMenu}> <div> <img src= {prabhashreelogo} alt="prabhashreelogo" className="w-16 h-12 prabhashreelogo "/> </div> <div>Prabhashree<span>Bhog</span></div></Link>
+              
+              
+            
+            </div>
 
       <nav className={menuOpen ? "nav-links active" : "nav-links"}>
         <Link to="/" onClick={closeMenu}>
@@ -53,6 +61,11 @@ const Header = ({user}: PropsType) => {
         <Link to="/cart" onClick={closeMenu}>
           {menuOpen ? "Cart" : <FaShoppingBag />}
         </Link>
+        
+<Link to="https://wa.me/+919835477119" onClick={closeMenu}>
+          {menuOpen ? "Whatsapp" : <img src={Whatsapp} alt="whatsapp" className=" w-[2rem] h-[2rem]" style={{"marginTop" : "-0.25rem"}}/>}
+        </Link>
+
 
         {user?._id ? (
            <>

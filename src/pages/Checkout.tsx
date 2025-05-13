@@ -202,7 +202,7 @@ const CheckOutForm = () => {
       const res = await fetch(`${import.meta.env.VITE_SERVER}/api/v1/payment/create`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: total }),
+        body: JSON.stringify({ amount: total*100 }),
       });
 
       const { order } = await res.json();
@@ -212,7 +212,7 @@ const CheckOutForm = () => {
 
       const options = {
         key: import.meta.env.VITE_RAZORPAY_API_KEY,
-        amount: order.amount*100,
+        amount: order.amount,
         currency: "INR",
         name: "PrabshreeBhog",
         description: "Dryfruit Order Payment",

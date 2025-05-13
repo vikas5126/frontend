@@ -26,10 +26,10 @@ const Contact = () => {
 
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold">Our Store</h2>
-          <p>📍 PrabhashreeBhog Dry Fruit Store<br />
-             Main Bazaar, Nashik, Maharashtra - 422001</p>
-          <p>📞 +91 98765 43210</p>
-          <p>✉️ support@prabhashreebhog.in</p>
+          <p>📍 PrabhashreeBhog Dryfruit Store<br />
+             Tri Nagar, Delhi-110035</p>
+          <p>📞 +91 9835477119</p>
+          <p>✉️ rahul251202@gmail.com</p>
         </section>
 
         <section>

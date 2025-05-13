@@ -20,45 +20,45 @@ const sliderImages = [
 
 const comments = [
   {
-    name: "John Doe",
+   name: "Neeraj",
     comment:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+      "They're so fresh and crunchy. Will definitely be ordering again.",
     star: '⭐⭐⭐⭐⭐',
   },
   {
-    name: "Jane Smith",
+    name: "Shivam ",
     comment:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+      "The packaging was also really good, keeping everything nice and secure. Highly recommend.",
       star: '⭐⭐⭐⭐',
   },
   {
-    name: "Alice Johnson",
+    name: "Isha",
     comment:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+      "The pistachios are delicious! Arrived quickly and were exactly as described. So happy with my purchase..",
     star: '⭐⭐⭐⭐',
   },
   {
-    name: "Bob Brown",
+    name: "surendra kumar",
     comment:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+      "Finally found a place with high-quality dried apricots that aren't overly sweet..",
     star: '⭐⭐⭐⭐⭐',
   },
   {
-    name: "Charlie Green",
+    name: "Sristi",
     comment:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+      " My order of cashews and raisins arrived in perfect condition. A great online store for dry fruit lovers.",
       star: '⭐⭐⭐⭐⭐',
   },
   {
-    name: "David White",
+    name: "Satyam Raj",
     comment:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+      "Impressed with the variety of organic options available.",
     star: '⭐⭐⭐⭐',
   },
   {
-    name: "Eve Black",
+    name: "Anubhav",
     comment:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+      "The quality speaks for itself, You can really taste the freshness in every bite.",
     star: '⭐⭐⭐⭐⭐',
   }
 ]
