@@ -771,3 +771,13 @@
     }
   }
 }
+
+
+.productByCategory{
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+  margin-top: 2rem;
+}

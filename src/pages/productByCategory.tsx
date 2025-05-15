@@ -22,7 +22,7 @@ const ProductByCategory = () => {
       };
     
   return (
-    <div >
+    <div className='productByCategory'>
                 {
           isLoading ? <Skeleton width="80vw"/> : data?.products.map((product, index) =>  (
               <ProductCard

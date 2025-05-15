@@ -2195,4 +2195,13 @@ a {
   font-size: 0.875rem;
   color: gray;
   padding-top: 2rem;
+}
+
+.productByCategory {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+  margin-top: 2rem;
 }/*# sourceMappingURL=app.css.map */
