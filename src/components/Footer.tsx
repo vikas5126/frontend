@@ -1,6 +1,7 @@
 import { RiCustomerService2Line, RiSecurePaymentLine } from "react-icons/ri";
 import "../styles/_footer.scss";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const Footer = () => {
@@ -43,7 +44,7 @@ const Footer = () => {
           <h2>Prabhashree Bhog</h2>
           <p>
             Carefully selected dry fruits from India and across the world.
-            <a href="/about"> Learn more →</a>
+           <Link to= {"/about"}>Learn more → </Link>
           </p>
           <div className="social-icons">
             <i className="ri-twitter-fill"></i>
