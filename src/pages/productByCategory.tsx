@@ -22,7 +22,7 @@ const ProductByCategory = () => {
       };
     
   return (
-    <div>
+    <div >
                 {
           isLoading ? <Skeleton width="80vw"/> : data?.products.map((product, index) =>  (
               <ProductCard
