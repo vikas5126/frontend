@@ -140,7 +140,11 @@
       }
 }
 .product-card {
-  width: 300px;
+  // width: 300px;
+  width: 16rem;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
   background-color: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 12px;

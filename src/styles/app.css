@@ -158,7 +158,10 @@ a {
 }
 
 .product-card {
-  width: 300px;
+  width: 16rem;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
   background-color: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
@@ -1627,6 +1630,14 @@ a {
 .header .logo a span {
   color: #a0522d;
 }
+@media (max-width: 400px) {
+  .header .logo img {
+    display: none;
+  }
+  .header .logo {
+    margin-right: 1rem;
+  }
+}
 .header .nav-links {
   display: flex;
   gap: 2rem;
@@ -1943,27 +1954,54 @@ a {
     opacity: 0.6;
   }
 }
-.about-page {
+.about {
+  padding: 3rem 1rem;
   background-color: #fffaf4;
   color: #3e2f1c;
-  padding: 2rem;
-  max-height: 100vh;
-  overflow-y: auto;
 }
-.about-page .container {
-  max-width: 720px;
+.about .container {
+  max-width: 960px;
   margin: 0 auto;
 }
-.about-page .container h1 {
+.about .about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.about .about-header {
+  text-align: center;
+}
+.about .about-header h1 {
   font-size: 2.5rem;
   font-weight: bold;
-  text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
-.about-page .container p {
-  line-height: 1.8;
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+.about .about-header .tagline {
+  font-size: 1.125rem;
+  color: #6b7280;
+}
+.about .about-section h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+.about .about-section p {
+  line-height: 1.7;
+  font-size: 1rem;
+}
+.about .about-section ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+.about .about-section ul li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+.about .about-footer {
+  text-align: center;
+  padding-top: 2rem;
+  font-size: 0.875rem;
+  color: #6b7280;
 }
 
 .contact-page {
