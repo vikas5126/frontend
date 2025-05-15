@@ -12,9 +12,42 @@ import axios from 'axios';
 import { server } from '../redux/store';
 
 const Cart = () => {
+  // const [cart, setCart] = useState([]);
   const {cartItems, subtotal, tax, total, shippingCharges, discount} = useSelector(
     (state: {cartReducer: CartReducerInitialState}) => state.cartReducer
   )
+  
+  useEffect(() => {
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+}, [cartItems]);
+  // useEffect(() => {
+  //   const updateCart = async () => {
+  //     try {
+  //       const auth = getAuth();
+  //       const token = await auth.currentUser?.getIdToken();
+
+  //       await axios.put(
+  //         `${import.meta.env.VITE_SERVER}/api/v1/user/cart`,
+  //         { cartItems },
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${token}`,
+  //           },
+  //         }
+  //       );
+  //     } catch (error) {
+  //       console.error("Failed to update cart on backend:", error);
+  //     }
+  //   };
+
+  //   if (cartItems.length > 0) {
+  //     updateCart();
+  //   }
+  // }, [cartItems]);
+
+  // if(cartItems.length < 0){
+  //   cartItems = cart
+  // }
 
   const dispatch = useDispatch();
 

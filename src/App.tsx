@@ -103,12 +103,12 @@ const App = () => {
             }
           />
 {/* logged In User Routes */}
-{/* <Route element={<ProtectedRoute isAuthenticated={user ? true : false}/>}> */}
+<Route element={<ProtectedRoute isAuthenticated={user ? true : false}/>}>
 <Route path="/shipping" element={<Shipping />}/>
 <Route path="/order" element={<Orders />}/>
 <Route path="/order-id" element={<OrderDetails />}/>
 <Route path='/pay' element={<Checkout/>} />
-{/* </Route> */}
+</Route>
 
 
 {/* Admin routes */}

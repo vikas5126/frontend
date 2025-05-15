@@ -2,9 +2,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CartReducerInitialState } from "../../types/reducer-types";
 import { CartItem, ShippingInfo } from "../../types/types";
 
+
+ 
+
 const initialState: CartReducerInitialState = {
   loading: false,
-  cartItems: [],
+  cartItems: JSON.parse(localStorage.getItem("cartItems") || "[]"),
+  //  cartItems: [],
   subtotal: 0,
   tax: 0,
   shippingCharges: 0,
@@ -20,6 +24,7 @@ const initialState: CartReducerInitialState = {
   },
 };
 
+
 export const cartReducer = createSlice({
   name: "cartReducer",
   initialState,
@@ -27,12 +32,16 @@ export const cartReducer = createSlice({
     addToCart: (state, action: PayloadAction<CartItem>) => {
       state.loading = true;
 
+
       const index = state.cartItems.findIndex(
         (i) => i.productId === action.payload.productId
       );
 
       if (index !== -1) state.cartItems[index] = action.payload;
       else state.cartItems.push(action.payload);
+
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+
       state.loading = false;
     },
 

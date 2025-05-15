@@ -82,12 +82,14 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const addToCardHandler = (cartItem: CartItem) => {
-    if(cartItem.stock < 1){
-      return toast.error("Out of Stock");
+  const addToCardHandler = (cartItem: CartItem): string | undefined => {
+    if (cartItem.stock < 1) {
+      toast.error("Out of Stock");
+      return undefined;
     }
-    dispatch(addToCart(cartItem))
+    dispatch(addToCart(cartItem));
     toast.success("Added To Cart");
+    return "Added To Cart";
   };
 
   if(isError){

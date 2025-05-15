@@ -3,6 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { AllUsersResponse, MessageResponse, UserResponse } from '../../types/api-types';
 import { User } from '../../types/types';
 import axios from 'axios';
+import { getAuth } from 'firebase/auth';
 
 
 
@@ -47,5 +48,25 @@ export const getUser = async(id: string)=> {
         return null;
     }
 }
+
+interface CartItem {
+  id: string;
+  quantity: number;
+}
+
+export const saveCartToServer = async (reduxCartItems: CartItem[]): Promise<void> => {
+  const auth = getAuth();
+  const token = await auth.currentUser?.getIdToken();
+
+  await axios.put(
+    `${import.meta.env.VITE_SERVER}/api/v1/user/cart`,
+    { cartItems: reduxCartItems },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
 
 export const {useLoginMutation, useDeleteUserAccountMutation, useAllUsersQuery} = userAPI
