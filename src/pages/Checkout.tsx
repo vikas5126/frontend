@@ -234,6 +234,7 @@ const CheckOutForm = () => {
           // Optional: You can verify payment client-side or rely on backend webhook
           const result = await newOrder(orderData);
           dispatch(resetCart());
+          localStorage.removeItem("cartItems");
           responseToast(result, navigate, "/order");
         },
       };
