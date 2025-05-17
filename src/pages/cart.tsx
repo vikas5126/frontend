@@ -1,25 +1,31 @@
 import {useState, useEffect} from 'react';
 import { VscError } from 'react-icons/vsc';
 import CartItem from '../components/cart-item';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaTrash } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
-import { CartReducerInitialState } from '../types/reducer-types';
+import { CartReducerInitialState, UserReducerInitialState } from '../types/reducer-types';
 import toast from 'react-hot-toast';
 import { CartItem as CartItemType } from '../types/types';
 import { addToCart, calculatePrice, discountApplied, removeCartItem } from '../redux/reducer/cartReducer';
 import axios from 'axios';
 import { server } from '../redux/store';
+import { responseToast } from '../utils/features';
 
 const Cart = () => {
   // const [cart, setCart] = useState([]);
   const {cartItems, subtotal, tax, total, shippingCharges, discount} = useSelector(
     (state: {cartReducer: CartReducerInitialState}) => state.cartReducer
   )
+
+  const {user} = useSelector((state : {userReducer: UserReducerInitialState})=> state.userReducer);
   
   useEffect(() => {
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }, [cartItems]);
+
+  const navigate = useNavigate();
+
   // useEffect(() => {
   //   const updateCart = async () => {
   //     try {
@@ -104,6 +110,18 @@ const Cart = () => {
     };
     
   }, [couponCode])
+
+
+  const handleCheckout = ()=> {
+    if(!user){
+      toast.error("Please Login First");
+      navigate('/login')
+    }
+    else{
+      navigate("/shipping");
+    }
+  }
+
   return (
     <div className="cart">
       <main>
@@ -157,7 +175,7 @@ const Cart = () => {
 
 
         {
-        cartItems.length > 0 && <Link to="/shipping" className='w-full h-12 bg-red-600 m-auto flex justify-center items-center text-white rounded-xl'>Checkout</Link>
+        cartItems.length > 0 && <div className='w-full h-12 bg-red-600 m-auto flex justify-center items-center text-white rounded-xl' onClick={handleCheckout}>Checkout</div>
 
         }
         </div>
