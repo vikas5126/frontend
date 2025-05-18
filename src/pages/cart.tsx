@@ -10,7 +10,6 @@ import { CartItem as CartItemType } from '../types/types';
 import { addToCart, calculatePrice, discountApplied, removeCartItem } from '../redux/reducer/cartReducer';
 import axios from 'axios';
 import { server } from '../redux/store';
-import { responseToast } from '../utils/features';
 
 const Cart = () => {
   // const [cart, setCart] = useState([]);
