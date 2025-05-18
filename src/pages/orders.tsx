@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useEffect, useMemo, useState } from "react";
 import TableHOC from "../components/admin/TableHOC";
 
 import toast from "react-hot-toast";
@@ -31,6 +31,8 @@ const Orders = () => {
 
     const isAdmin = user?.role === "admin"; // or any condition you use
 
+    // console.log(user?._id);
+
     const columns = isAdmin
     ? [
         ...baseColumns,
@@ -42,16 +44,21 @@ const Orders = () => {
     : baseColumns;
 
     const {isLoading, error, isError, data} = useMyOrdersQuery(user?._id ?? "");
+    // console.log(data);
 
     // console.log(data?.orders[0].user._id);
 
     const [rows, setRows] = useState<DataType[]>([]);
 
-    if(isError){
-        const err = error as CustomError;
-        toast.error(err.data.message);
-      }
-       useEffect(() => {
+    useEffect(() => {
+  if (isError) {
+    const err = error as CustomError;
+    toast.error(err.data.message);
+  }
+}, [isError, error]);
+
+    useEffect(() => {
+      
   if (data) {
     setRows(
       data.orders.map((i) => ({
@@ -80,17 +87,20 @@ const Orders = () => {
 
 
 
-    const Table = TableHOC<DataType>(
-  columns,
-  rows,
-  "dashboard-product-box",
-  "Orders",
-  rows.length > 6
-)();
+const Table = useMemo(() => {
+  return TableHOC<DataType>(
+    columns,
+    rows,
+    "dashboard-product-box",
+    "Orders",
+    rows.length > 6
+  );
+}, [columns, rows]);
+
   return (
     <div className="container">
         <h1>My Orders</h1>
-        {isLoading ? <Skeleton length={20}/> :Table}
+        {isLoading ? <Skeleton length={20}/> : <Table />}
     </div>
   );
 };
