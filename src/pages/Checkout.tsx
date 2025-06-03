@@ -157,7 +157,7 @@ import { responseToast } from "../utils/features";
 
 declare global {
   interface Window {
-    Razorpay: any;
+    Razorpay: unknown;
   }
 }
 
