@@ -606,76 +606,144 @@ a {
   opacity: 0.8;
 }
 
-.login {
-  height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-.login > main {
-  width: 100%;
-  height: 80%;
-  max-width: 400px;
-  padding: 2rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.384);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  gap: 1rem;
-}
-.login > main > div {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  gap: 0.2rem;
-}
-.login > main > div > input,
-.login > main > div > select {
-  padding: 1rem;
-  border: none;
-  background-color: inherit;
-  width: 100%;
-  outline: none;
-  border: 1px solid rgba(162, 162, 162, 0.53);
-  border-radius: 5px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-.login > main > div > p {
-  text-align: center;
-  margin: 2rem;
-}
-.login > main > div button {
-  width: 70%;
+.login-container {
+  width: 300px;
   margin: auto;
-  height: 3rem;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  padding: unset;
-  background-color: rgb(62, 125, 242);
-  color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  border: 1px solid rgb(62, 125, 242);
-  border-radius: 5px;
-  font-size: 1.05rem;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
 }
-.login > main > div button > svg {
-  background-color: white;
-  width: 30%;
-  height: 100%;
-}
-.login > main > div button > span {
-  width: 100%;
+.login-container h2 {
   text-align: center;
+  margin-bottom: 1rem;
+}
+.login-container .google-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+.login-container .google-button span {
+  font-weight: 500;
+}
+.login-container .google-button:hover {
+  background: #f0f0f0;
+}
+.login-container form div {
+  margin-bottom: 1rem;
+}
+.login-container form div label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+.login-container form div input {
+  width: 100%;
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.login-container form .password-field .input-wrapper {
+  position: relative;
+}
+.login-container form .password-field .input-wrapper input {
+  width: 100%;
+  padding-right: 2.5rem;
+}
+.login-container form .password-field .input-wrapper .eye-button {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #555;
+}
+.login-container form .password-field .input-wrapper .eye-button:hover {
+  color: #000;
+}
+.login-container form button[type=submit] {
+  width: 100%;
+  padding: 0.6rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.login-container form button[type=submit]:hover {
+  background-color: #0056b3;
+}
+
+.signup-container {
+  width: 300px;
+  margin: 3rem auto;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fafafa;
+}
+.signup-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.signup-container form div {
+  margin-bottom: 1.2rem;
+}
+.signup-container form div label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.signup-container form div input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.signup-container form .password-field .input-wrapper {
+  position: relative;
+}
+.signup-container form .password-field .input-wrapper input {
+  padding-right: 2.5rem;
+}
+.signup-container form .password-field .input-wrapper .eye-button {
+  position: absolute;
+  right: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #555;
+}
+.signup-container form .password-field .input-wrapper .eye-button:hover {
+  color: #000;
+}
+.signup-container form button[type=submit] {
+  width: 100%;
+  padding: 0.6rem;
+  font-weight: bold;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.signup-container form button[type=submit]:hover {
+  background-color: #218838;
 }
 
 .product-search-page {

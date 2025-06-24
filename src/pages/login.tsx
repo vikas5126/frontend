@@ -1,21 +1,31 @@
-import { FetchBaseQueryError } from '@reduxjs/toolkit/query/react';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { useState } from 'react';
-import toast from 'react-hot-toast';
-import { FcGoogle } from 'react-icons/fc';
-import { useNavigate } from 'react-router-dom';
-import { auth } from '../firebase';
-import { useLoginMutation } from '../redux/api/userAPI';
+import { useState } from "react";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../firebase";
+import toast from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+// import "../styles/login.scss"; // adjust path as needed;
 
+import { useLoginMutation } from "../redux/api/userAPI";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const [gender, setGender] = useState("");
-    const [date, setDate] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
-    const [login] = useLoginMutation();
-    const navigate = useNavigate();
+  const [login] = useLoginMutation();
 
-    const loginHandler = async() => {
+  const navigate = useNavigate();
+
+  const togglePassword = () => setShowPassword((prev) => !prev);
+
+  const signInWithGoogle = async() => {
         try{
             const provider = new GoogleAuthProvider();
             const {user} = await signInWithPopup(auth, provider)
@@ -25,8 +35,8 @@ const Login = () => {
                 name : user.displayName as string,
                 email : user.email as string,
                 photo  : user.photoURL as string,
-                gender ,
-                dob : date,
+                gender: "Male" as string ,
+                dob : new Date().toISOString(),
                 role : "user",
             })
 
@@ -51,37 +61,63 @@ const Login = () => {
             console.log(err);
         }
     }
+
+  const signInWithEmail = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const {user} = await signInWithEmailAndPassword(auth, email, password);
+      console.log(user);
+      toast.success("Logged in successfully!");
+    } catch (error) {
+      console.error(error);
+      toast.error("Google Sign-In failed");
+    }
+  };
+
   return (
-    <div className='login'>
-        <main>
-            <h1 className='heading'>Login</h1>
+    <div className="login-container">
+      <h2>Sign In</h2>
 
-            <div>
-                <label>Gender</label>
-                <select
-                    value={gender}
-                    onChange={(e) => setGender(e.target.value)}>
-                        <option value="">Select Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                </select>
-            </div>
+      <button onClick={signInWithGoogle} className="google-button">
+        <FcGoogle size={24} />
+        <span>Sign in with Google</span>
+      </button>
 
-            <div>
-                <label>Date of Birth</label>        
-                <input 
-                type="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}/>
-            </div>
+      <form onSubmit={signInWithEmail}>
+        <div>
+          <label>Email</label>
+          <input
+            type="email"
+            value={email}
+            required
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@example.com"
+          />
+        </div>
 
-            <div><p>Already Signed In Once</p>
-            <button onClick={loginHandler} className='login-button'>
-                <FcGoogle /> <span>Sign in with Google</span>
+        <div className="password-field">
+          <label>Password</label>
+          <div className="input-wrapper">
+            <input
+              type={showPassword ? "text" : "password"}
+              value={password}
+              required
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="••••••••"
+            />
+            <button
+              type="button"
+              onClick={togglePassword}
+              className="eye-button"
+              aria-label="Toggle Password"
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
+          </div>
+        </div>
 
-            </div>
-        </main>
+        <button type="submit">Sign in with Email</button>
+      </form>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, User } from 'firebase/auth';
 import { lazy, Suspense, useEffect } from "react";
 import { Toaster } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
@@ -41,6 +41,7 @@ const Linecharts = lazy(() => import("./pages/admin/charts/linecharts"));
 const Coupon = lazy(() => import("./pages/admin/apps/coupon"));
 const Stopwatch = lazy(() => import("./pages/admin/apps/stopwatch"));
 const Toss = lazy(() => import("./pages/admin/apps/toss"));
+const Signup = lazy(() => import("./components/Signup"));
 const NewProduct = lazy(() => import("./pages/admin/management/newproduct"));
 const ProductManagement = lazy(
   () => import("./pages/admin/management/productmanagement")
@@ -50,28 +51,40 @@ const TransactionManagement = lazy(
 );
 
 const App = () => {
-  const {user} = useSelector((state:{userReducer: UserReducerInitialState}) => state.userReducer);
+  // const {user} = useSelector((state:{userReducer: UserReducerInitialState}) => state.userReducer);
 
   // console.log(user?.role);
 
   const dispatch = useDispatch();
 
+  const { user } = useSelector(
+    (state: { userReducer: UserReducerInitialState }) => state.userReducer
+  );
+
   useEffect(() => {
-    onAuthStateChanged(auth, async (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
-        const data = await getUser(user.uid);
-        // console.log("User is signed in:", user);
-        if (data && data.user) {
-          dispatch(userExist(data.user));
+        try {
+          const data = await getUser(user.uid);
+          if (data && data.user) {
+            dispatch(userExist(data.user));
+          } else {
+            dispatch(userNotExist());
+            console.warn("User exists in Firebase but not in backend DB");
+          }
+        } catch (err) {
+          dispatch(userNotExist());
+          console.error("Failed to fetch user from backend", err);
         }
-        // User is signed in, you can access user information here
       } else {
         dispatch(userNotExist());
         console.log("No user is signed in.");
-        // No user is signed in
       }
     });
-  }, []);
+
+    // cleanup function to avoid memory leaks
+    return () => unsubscribe();
+  }, [dispatch]);
 
 
   return (
@@ -102,7 +115,17 @@ const App = () => {
               </ProtectedRoute>
             }
           />
+
+<Route
+            path="/signup"
+            element={
+              <ProtectedRoute isAuthenticated={user ? false : true}>
+                <Signup />
+              </ProtectedRoute>
+            }   
+          />
 {/* logged In User Routes */}
+
 <Route element={<ProtectedRoute isAuthenticated={user ? true : false}/>}>
 <Route path="/shipping" element={<Shipping />}/>
 <Route path="/order" element={<Orders />}/>
