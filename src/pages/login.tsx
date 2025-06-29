@@ -68,6 +68,7 @@ const Login = () => {
       const {user} = await signInWithEmailAndPassword(auth, email, password);
       console.log(user);
       toast.success("Logged in successfully!");
+      navigate("/");
     } catch (error) {
       console.error(error);
       toast.error("Google Sign-In failed");
