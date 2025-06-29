@@ -1,4 +1,4 @@
-import { onAuthStateChanged, User } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 import { lazy, Suspense, useEffect } from "react";
 import { Toaster } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';

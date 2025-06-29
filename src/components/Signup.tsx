@@ -8,8 +8,6 @@ import toast from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../redux/api/userAPI";
-import { GiRabbitHead } from "react-icons/gi";
-
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
